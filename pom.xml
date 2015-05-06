@@ -12,8 +12,24 @@
 
     <scm>
         <connection>scm:git:https://github.com/ielia/tests.git</connection>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>nexus</id>
+            <layout>default</layout>
+            <name>Internal Repository</name>
+            <uniqueVersion>false</uniqueVersion>
+            <url>http://172.20.18.50:8081/nexus/content/repositories/central/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus</id>
+            <name>Internal Repository</name>
+            <url>http://172.20.18.50:8081/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
 
     <build>
         <plugins>
@@ -101,7 +117,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <serverId>nexus</serverId>
+                    <serverId>nexus-releases</serverId>
                     <skipStaging>true</skipStaging>
                 </configuration>
             </plugin>
